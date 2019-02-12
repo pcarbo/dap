@@ -1,14 +1,28 @@
-main: main.o controller.o parser.o MLR.o
-	g++   -fopenmp  -O3 main.o parser.o controller.o MLR.o -lm -L/usr/local/lib -lgsl -lgslcblas -o dap-g
-static:	main.o controller.o parser.o MLR.o 
-	g++  -fopenmp  -O3 main.o parser.o controller.o MLR.o -lm -L/usr/local/lib -lgsl -lgslcblas -static -o  dap-g.static
+# GSL installed with Homebrew (brew install gsl).
+GSL_PATH=/usr/local/Cellar/gsl/2.4
+
+CXX=g++
+CXXFLAGS=-I$(GSL_PATH)/include
+
+all: dap-g
+
+dap-g: main.o controller.o parser.o MLR.o
+	$(CXX) $(CXXFLAGS) main.o parser.o controller.o MLR.o \
+          -lm -L$(GSL_PATH)/lib -lgsl -lgslcblas -o dap-g
+
 main.o: main.cc
-	g++  -c -O3  main.cc
+	$(CXX) -c $(CXXFLAGS) main.cc
+
 parser.o: parser.cc parser.h
-	g++  -c -O3 parser.cc
+	$(CXX) -c $(CXXFLAGS) parser.cc
+
 controller.o: controller.cc controller.h
-	g++ -c -O3 -fopenmp  controller.cc
+	$(CXX) -c $(CXXFLAGS) controller.cc
+
 MLR.o: MLR.cc MLR.h
-	g++ -c -O3 MLR.cc
+	$(CXX) -c $(CXXFLAGS) MLR.cc
+
 clean:
 	rm *.o dap-g
+
+

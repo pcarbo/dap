@@ -1,5 +1,3 @@
-using namespace std;
-
 #include "controller.h"
 #include <math.h>
 #include <fstream>
@@ -12,7 +10,6 @@ using namespace std;
 #include <unistd.h>
 #include <gsl/gsl_combination.h>
 #include <gsl/gsl_sf_gamma.h>
-#include <omp.h>
 
 void controller::initialize(char *effect_file, char *ld_file, char *grid_file, int sample_size, double syy_, int ld_format){
     

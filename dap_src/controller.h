@@ -1,10 +1,12 @@
-#include "parser.h"
 #include <gsl/gsl_matrix.h>
 #include <gsl/gsl_rng.h>
 #include "MLR.h"
 #include <set>
 #include <map>
 #include <stdio.h>
+#include "parser.h"
+
+using namespace std;
 
 class NSNP {
 

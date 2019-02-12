@@ -1,5 +1,3 @@
-using namespace std;
-
 #include "controller.h"
 #include <stdlib.h>
 
@@ -15,7 +13,6 @@ int main(int argc, char **argv){
     char gene_name[64];
 
     char prior_file[128];
-
 
     memset(gene_name,0,64);
     memset(grid_file,0,128);

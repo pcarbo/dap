@@ -1,5 +1,3 @@
-using namespace std;
-
 #include "parser.h"
 #include "stdlib.h"
 #include <string>
@@ -9,6 +7,7 @@ using namespace std;
 #include <gsl/gsl_linalg.h>
 #include <gsl/gsl_blas.h>
 
+using namespace std;
 
 void parser::process_summary_data2(char *effect_file, char *ld_file, int sample_size, double syy, int ld_format){
 

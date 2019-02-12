@@ -1,10 +1,11 @@
-using namespace std;
 #include "MLR.h"
 #include <math.h>
 #include <gsl/gsl_blas.h>
 #include <gsl/gsl_cdf.h>
 #include <gsl/gsl_statistics.h>
 #include <gsl/gsl_fit.h>
+
+using namespace std;
 
 void MLR::init(double yty_, const gsl_matrix *GtG_, const gsl_matrix *Gty_, int n_){
 
